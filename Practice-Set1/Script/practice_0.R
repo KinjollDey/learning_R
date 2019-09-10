@@ -53,6 +53,8 @@ colnames(data1)
 attach(data1)
 sort(Airport)
 data_arranged <- data1[order (net_charge) ,]
+attach(data_arranged)
+detach(data1)
 
 list1 <- list()
 colnames(data_arranged)
@@ -110,3 +112,5 @@ profvis({
   Mean_nC2
 })
  
+
+detach(data_arranged)
