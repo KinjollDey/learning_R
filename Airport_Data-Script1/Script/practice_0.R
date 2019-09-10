@@ -79,10 +79,34 @@ names(L2)[which(L2 == max(L2))]     ##mode
 
 plot(Destination,net_charge)
 
-
-
-
 ## Apply function
+Mean_nC <- apply(data_arranged[7], 2, mean)
+Mean_nC
 ## For Loop
-## Data Analysis
-## Graphs
+total <- NULL
+Mean_nC2 <- NULL
+for (i in 1:length(data_arranged$net_charge)) {
+        total <- sum(total, data_arranged$net_charge[i])  
+}
+Mean_nC2 <- total/ length(data_arranged$net_charge)
+
+## Comparison (Loop takes 10msecs whereas apply function takes 0.05secs)
+
+install.packages("profvis")
+library(profvis)
+
+ profvis({
+  Mean_nC <- apply(data_arranged[7], 2, mean)
+  Mean_nC
+})
+
+profvis({
+  total <- NULL
+  Mean_nC2 <- NULL
+  for (i in 1:length(data_arranged$net_charge)) {
+    total <- sum(total, data_arranged$net_charge[i])  
+  }
+  Mean_nC2 <- total/ length(data_arranged$net_charge)
+  Mean_nC2
+})
+ 
