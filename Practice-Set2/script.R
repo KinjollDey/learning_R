@@ -51,15 +51,68 @@ subset(data, Species== 'setosa' & Sepal.Length > 3)
 
 
 ## Plots(Basic)
-plot(data$Petal.Length, data$Petal.Width, main="Iris Data")
-plot(data$sepal.width, data$sepal.length, xlim = 5, ylim = 5)
-hist(data$Sepal.Length)
+head(data)
+str(data)
 
-plot(data)
-## Plots (Advanced)
+plot(data$Sepal.Length)  ## Scatter Plot
 
+hist(data$Sepal.Length,col = c("blue", "brown", "yellow"))  ## Histogram
+
+plot(data$Sepal.Length, type = 's', col = c("blue", "brown", "yellow"))    ## Points(scatter plot) and lines
+plot(data$Sepal.Length, type = 'S')    ## 
+boxplot(data$Sepal.Length ~ data$Species)
+boxplot(data$Petal.Length ~ data$Species, col = c("blue", "brown", "yellow"))
+
+## Applying loops on graphs
+attach(data)
+
+
+## editing Plots
+plot(data$Petal.Length, data$Petal.Width, main = "Iris Data", xlab = "petal.length", ylab = "petal.width", 
+     xlim = c(-0.2,7.2), ylim = c(-0.1,2.8))
+
+## Changing the points and symbol types
+#example("pch")
+plot(data$Petal.Length, data$Petal.Width, pch = 2, main = "Iris Data", xlab = "petal.length", ylab = "petal.width", 
+     xlim = c(-0.2,7.2), ylim = c(-0.1,2.8))
+
+## Adding color to the plot
+plot(data$Sepal.Length, data$Sepal.Width, pch = 19, col= 'red', main = "Iris Data", 
+     xlab = "sepal.length", ylab = "sepal.width" )
+
+colors1 <- c("red", "blue", "green")[as.factor(data$Species)]       ## Since col argument takes a vector
+plot(data$Sepal.Length, data$Sepal.Width, pch = 19, col= colors1, main = "Iris Data", xlab = "sepal.length",
+     ylab = "sepal.width")   
+legend('topright', legend = unique(data$Species), cex= 0.75, pt.cex = 1,  col = c("red", "blue", "green"), pch = 19,
+       text.col = c("red", "blue", "green")) 
+
+## Merging Multiple Graphs
+par(mfrow= c(1,2))
+colors <- c("red", "blue", "green")[as.factor(data$Species)]       ## Since col argument takes a vector
+plot(data$Sepal.Length, data$Sepal.Width, pch = 19, col= colors, main = "Iris Data- Sepal", xlab = "sepal.length",
+     ylab = "sepal.width")   
+
+colors <- c("red", "blue", "green")[as.factor(data$Species)]       ## Since col argument takes a vector
+plot(data$Petal.Length, data$Petal.Width, pch = 19, col= colors, main = "Iris Data-Petal", xlab = "petal.length",
+     ylab = "petal.width")   
 
 
 ##loops 
-## Apply
+# histogram using for loop on columns 
+par(mfrow = c(2,2))
+for(i in 2:5) {
+  hist(data[,i], main = names(data)[i], col = c("blue", "brown", "yellow"))
+}
+
+# Box-plot using for loop in columns
+par(mfrow=c(1,4))
+for(i in 2:5) {
+  boxplot(data[,i], main=names(data)[i], col = c("blue", "brown", "yellow"))
+}
+
+
+## Plots (Advanced)
+# Using ggplot2
+
+
 ## statistics
