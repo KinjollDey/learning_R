@@ -87,6 +87,7 @@ legend('topright', legend = unique(data$Species), cex= 0.75, pt.cex = 1,  col = 
        text.col = c("red", "blue", "green")) 
 
 ## Merging Multiple Graphs
+#1
 par(mfrow= c(1,2))
 colors <- c("red", "blue", "green")[as.factor(data$Species)]       ## Since col argument takes a vector
 plot(data$Sepal.Length, data$Sepal.Width, pch = 19, col= colors, main = "Iris Data- Sepal", xlab = "sepal.length",
@@ -95,6 +96,20 @@ plot(data$Sepal.Length, data$Sepal.Width, pch = 19, col= colors, main = "Iris Da
 colors <- c("red", "blue", "green")[as.factor(data$Species)]       ## Since col argument takes a vector
 plot(data$Petal.Length, data$Petal.Width, pch = 19, col= colors, main = "Iris Data-Petal", xlab = "petal.length",
      ylab = "petal.width")   
+
+#2
+layout(matrix(1:4, 2, 2))
+boxplot(data$Sepal.Length~data$Species, main = "Boxplot of Sepal Length",
+        xlab = "Species", ylab = "Sepal Length", col = c("red","green3","blue"),
+        cex.lab = 1.25)
+hist(data$Sepal.Length, main = "Histogram of Sepal Length",
+     xlab = "Sepal Length", ylab = "Frequency", col = c("grey"), cex.lab = 1.25)
+plot(data$Sepal.Length, type = 'l', lty = 2, lwd = 2, col = 'red',
+     main = "Variation with of Petal Width and Petal Length",
+     xlab = "Petal Length", ylab = "Petal Width", cex.lab = 1.25)
+plot(data$Petal.Length, data$Petal.Width, pch = 8, col = colors,
+     main = "Scatter plot of Petal Width and Petal Length",
+     xlab = "Petal Length", ylab = "Petal Width", cex.lab = 1.25)
 
 
 ##loops 
@@ -107,7 +122,7 @@ for(i in 2:5) {
 # Box-plot using for loop in columns
 par(mfrow=c(1,4))
 for(i in 2:5) {
-  boxplot(data[,i], main=names(data)[i], col = c("blue", "brown", "yellow"))
+  boxplot(data[,i], main=names(data)[i], col = rainbow(4))
 }
 
 
