@@ -1,6 +1,6 @@
 ## Functions:-
 
-getwd()
+path <- getwd()
 setwd("C:\\Users\\user 1\\Desktop\\R\\learning_R\\Practice-set3")
 
 set.seed(123)
@@ -28,3 +28,9 @@ count1 <- countCharOccurrences <- function(char, string) {
 for(s in length(string)){
   count1(string)
 }
+
+readline(data)
+## 
+as.character(data_seq)
+readline(data_seq)
+xyz <- readLines(paste("C:/Users/user 1/Desktop/R/learning_R/Practice-set3/E.coli 25922.txt", sep = "/")) 
