@@ -9,6 +9,6 @@ Practice Set 3 : Nucleotide count
 
 Practice Set 4 : Loops and User-defined- Functions
   
-Practice Set 5 : Instrument Names from PRIDE
+ Details of each Problem set is described under the problem set folder. 
 
 

@@ -19,6 +19,6 @@ Practice Set 3 : Nucleotide count
 
 Practice Set 4 : Loops and User-defined- Functions
 
-Downloading a dataset of survey
-Operating R base functions on data to manipulate and arrange data
-Practice Set 5 : Instrument Names from PRIDE
+-Downloading a dataset of survey
+-Operating R base functions on data to manipulate and arrange data
+-Solution to problem set available online (questions included in script)

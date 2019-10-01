@@ -20,17 +20,4 @@ class(string)
 strsplit(string, "")[[1]]
 table(strsplit(string, "")[[1]])
 
-###
-count1 <- countCharOccurrences <- function(char, string) {
-  s2 <- gsub(char, '.',string)
-  return (nchar(string) - nchar(s2))
-}
-for(s in length(string)){
-  count1(string)
-}
-
-readline(data)
-## 
-as.character(data_seq)
-readline(data_seq)
-xyz <- readLines(paste("C:/Users/user 1/Desktop/R/learning_R/Practice-set3/E.coli 25922.txt", sep = "/")) 
+ 
